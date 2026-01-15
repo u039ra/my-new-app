@@ -1,4 +1,13 @@
 services:
+  # アプリケーション実行用コンテナ
+  app:
+    build: .
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  # Web表示確認用（前の設定を残しつつ微調整）
   web:
     image: nginx:latest
     ports:
